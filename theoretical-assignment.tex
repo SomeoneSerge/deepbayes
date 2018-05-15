@@ -1,0 +1,61 @@
+\documentclass[a4paper]{article}
+
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\begin{document}
+\section{Problem 1}
+
+Given
+\[ \xi\sim\mathrm{Pois}(\lambda),\]
+\[ \eta = \sum_{k=1}^\xi B_k, \]
+\[ B_k\sim\mathrm{Bern}(p),\]
+we shall prove that
+\[ \eta\sim\mathrm{Pois}(p\lambda).\]
+
+We could use the fact that
+\[
+  G_\eta(t) = G_\xi(G_{B_0}(t)),
+\]
+where \(G_X\) denotes the probability generating function
+of a random variable \( X \) supported on \( \mathbb{Z} \):
+\( G_X(t) = \sum_k \mathrm{Pr}(X=k)t^k. \)
+
+It's known that
+\[
+  G_\xi(t) = \exp(\lambda(t-1)),
+\]
+and obviously
+\[
+  G_{B_0} = (1-p) + pt.
+\]
+From that we get:
+
+\[
+  G_\eta(t) = \exp(\lambda((1-p) + pt - 1)) = \exp(p\lambda(t-1))
+\]
+which means \(\eta\sim\mathrm{Pois}(p\lambda)\).
+
+\section{Problem 2}
+
+Let \( t_1, t_2 \)
+denote the density functions of the times
+\( T_1\sim\mathrm{Norm}(30, 10^2) \),
+\( T_2\sim\mathrm{Norm}(20, 5^2) \)
+the strict and kind reviewers spend to check the application respectively.
+Then the time \( T \) an average application is reviewed is distributed
+according to the density function \( t = \frac12(t_1 + t_2)\).
+
+No time to justify and reason, but I'd guess
+\[
+  \mathrm{Pr}(\mathrm{kind}\big| T=10)
+  = \frac{\mathrm{dPr}(T=10\big| \mathrm{kind})\mathrm{Pr}(\mathrm{kind})
+  }{\mathrm{dPr}(T=10)}= \]
+\[= \frac{\frac12 t_2(10) \frac12}{\frac12(t_1(10) + t_2(10))}
+  = \frac12\frac{\exp(-\frac{1}{25})}{\exp(-\frac{1}{25}) + \frac12\exp0}.
+\]
+\[
+  = \frac12\frac{\exp(-\frac{1}{25})}{\exp(-\frac{1}{25}) + \frac12}.
+\]
+
+\end{document}

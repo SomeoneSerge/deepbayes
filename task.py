@@ -63,7 +63,7 @@ class AutoEncoder(nn.Module):
         :params x: original object, Variable of shape (batch_size, inp_size)
         :return: loss
         """
-        Lambda = 0.25
+        Lambda = 0.1
         J = (x - recon_x).reshape((-1,))
         J = torch.dot(J, J)
         for p in self.parameters():
